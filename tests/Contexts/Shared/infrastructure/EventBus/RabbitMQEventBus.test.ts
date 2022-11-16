@@ -134,6 +134,7 @@ describe('RabbitMQEventBus test', () => {
       await connection.deleteQueue(queueNameFormatter.formatDeadLetter(dummySubscriber));
     }
 
+
     async function assertDeadLetter(events: Array<DomainEvent>) {
       const deadLetterQueue = queueNameFormatter.formatDeadLetter(dummySubscriber);
       const deadLetterSubscriber = new DomainEventSubscriberDummy();
@@ -144,6 +145,5 @@ describe('RabbitMQEventBus test', () => {
 
       await deadLetterSubscriber.assertConsumedEvents(events);
     }
-    
   });
 });
