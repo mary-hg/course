@@ -41,4 +41,3 @@ export class DomainEventDeserializer extends Map<string, DomainEventClass> {
     });
   }
 }
-

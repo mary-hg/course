@@ -39,18 +39,18 @@ services:
     class: ../../../../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMQqueueFormatter
     arguments: ['mooc']
 
-  Mooc.Shared.DomainEventFailoverPublisher:
-    class: ../../../../../Contexts/Shared/infrastructure/EventBus/DomainEventFailoverPublisher/DomainEventFailoverPublisher
-    arguments: ['@Mooc.Shared.ConnectionManager']
-
   Mooc.Shared.RabbitMQConfigurer:
     class: ../../../../../Contexts/Shared/infrastructure/EventBus/RabbitMQ/RabbitMQConfigurer
     arguments: ["@Mooc.Shared.RabbitMQConnection", "@Mooc.Shared.RabbitMQQueueFormatter"]
 
-  Shared.CommandHandlers:
+  Mooc.Shared.DomainEventFailoverPublisher:
+    class: ../../../../../Contexts/Shared/infrastructure/EventBus/DomainEventFailoverPublisher/DomainEventFailoverPublisher
+    arguments: ['@Mooc.Shared.ConnectionManager']
+
+  Mooc.Shared.CommandHandlers:
     class: ../../../../../Contexts/Shared/infrastructure/CommandBus/CommandHandlers
     arguments: ['!tagged commandHandler']
 
-  Shared.CommandBus:
+  Mooc.Shared.domain.CommandBus:
     class: ../../../../../Contexts/Shared/infrastructure/CommandBus/InMemoryCommandBus
-    arguments: ['@Shared.CommandHandlers']
+    arguments: ['@Mooc.Shared.CommandHandlers']
