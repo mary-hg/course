@@ -25,4 +25,13 @@ export class MongoCourseRepository extends MongoRepository<Course> implements Co
   protected collectionName(): string {
     return 'courses';
   }
+
+  public async searchAll(): Promise<Course[]> {
+    const collection = await this.collection();
+    const documents = await collection.find<CourseDocument>({}).toArray();
+
+    return documents.map(document =>
+      Course.fromPrimitives({ name: document.name, duration: document.duration, id: document._id })
+    );
+  }
 }
