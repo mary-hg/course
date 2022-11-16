@@ -5,6 +5,8 @@ import config from '../config';
 export type RabbitMQConfig = {
   connectionSettings: ConnectionSettings;
   exchangeSettings: ExchangeSetting;
+  maxRetries: number;
+  retryTtl: number;
 };
 export class RabbitMQConfigFactory {
   static createConfig(): RabbitMQConfig {
