@@ -3,9 +3,9 @@ import { ExchangeSetting } from '../../../../Shared/infrastructure/EventBus/Rabb
 import config from '../config';
 
 export type RabbitMQConfig = {
-  exchangeSettings: ExchangeSetting,
-  connectionSettings: ConnectionSettings
-}
+  connectionSettings: ConnectionSettings;
+  exchangeSettings: ExchangeSetting;
+};
 export class RabbitMQConfigFactory {
   static createConfig(): RabbitMQConfig {
     return config.get('rabbitmq');
