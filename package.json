@@ -15,6 +15,7 @@
     "dev:backoffice:frontend": "cd ./src/apps/backoffice/frontend && npm start",
     "dev:backoffice:backend": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/apps/backoffice/backend/start.ts",
     "lint": "tslint src/**/*.ts{,x}",
+    "lint-fix": "tslint src/**/*.ts{,x} --fix",
     "test": "npm run test:unit && npm run test:features",
     "test:unit": "NODE_ENV=test jest",
     "start:mooc:backend": "NODE_ENV=production node dist/src/apps/mooc/backend/start",

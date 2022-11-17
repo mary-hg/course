@@ -7,12 +7,11 @@ interface CourseDocument {
   _id: string;
   name: string;
   duration: string;
-};
+}
 
 export class MongoBackofficeCourseRepository
   extends MongoRepository<BackofficeCourse>
-  implements BackofficeCourseRepository
-{
+  implements BackofficeCourseRepository {
   public save(course: BackofficeCourse): Promise<void> {
     return this.persist(course.id.value, course);
   }

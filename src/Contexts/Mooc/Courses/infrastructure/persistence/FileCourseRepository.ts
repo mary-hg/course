@@ -15,7 +15,7 @@ export class FileCourseRepository implements CourseRepository {
     const { id, name, duration } = deserialize(courseData);
     return new Course(id, name, duration);
   }
-  async searchAll(): Promise<Array<Course>>{
+  async searchAll(): Promise<Array<Course>> {
     return [];
   }
 
