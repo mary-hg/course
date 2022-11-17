@@ -19,7 +19,7 @@
     "test:unit": "NODE_ENV=test jest",
     "start:mooc:backend": "NODE_ENV=production node dist/src/apps/mooc/backend/start",
     "start:backoffice:backend": "NODE_ENV=production node dist/src/apps/backoffice/backend/start",
-    "test:features": "npm run test:mooc:backend:features && npm run test:backoffice:backend:features",
+    "test:features": "npm run test:mooc:backend:features",
     "test:mooc:backend:features": "NODE_ENV=test cucumber-js -p mooc_backend",
     "test:backoffice:backend:features": "NODE_ENV=test cucumber-js -p backoffice_backend",
     "build": "npm run build:clean && npm run build:tsc && npm run build:di",
@@ -31,6 +31,7 @@
     "command:backoffice:rabbitmq": "NODE_ENV=production ts-node src/apps/backoffice/backend/command/runConfigureRabbitMQCommand"
   },
   "dependencies": {
+    "@elastic/elasticsearch": "^7.11.0",
     "@types/amqplib": "^0.8.2",
     "@types/bson": "^4.0.3",
     "@types/compression": "^1.7.0",
