@@ -6,7 +6,6 @@ import { CourseIdMother } from "../../../Shared/domain/Courses/CourseIdMother";
 import { CourseDurationMother } from "../../domain/CourseDurationMother";
 import { CourseNameMother } from "../../domain/CourseNameMother";
 
-
 export class CreateCourseCommandMother {
   static create(id: CourseId, name: CourseName, duration: CourseDuration): CreateCourseCommand {
     return { id: id.value, name: name.value, duration: duration.value };
